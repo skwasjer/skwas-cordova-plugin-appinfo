@@ -4,14 +4,13 @@
     "cordova_name": "AppInfo",
     "description": "Cordova AppInfo Plugin",
     "license": "MIT",
-    "repo": "https://github.com/skwasjer/cordova-appinfo-plugin",
+    "repo": "https://github.com/skwasjer/cordova-appinfo-plugin.git",
     "keywords": [
         "cordova",
         "appinfo"
     ],
     "platforms": [
         "android",
-//        "ios",
         "browser"
     ],
     "engines": []
