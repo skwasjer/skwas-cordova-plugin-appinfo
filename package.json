@@ -1,0 +1,18 @@
+{
+    "version": "0.3.1",
+    "name": "com.skwas.cordova.appinfo",
+    "cordova_name": "AppInfo",
+    "description": "Cordova AppInfo Plugin",
+    "license": "MIT",
+    "repo": "https://github.com/skwasjer/cordova-appinfo-plugin",
+    "keywords": [
+        "cordova",
+        "appinfo"
+    ],
+    "platforms": [
+        "android",
+//        "ios",
+        "browser"
+    ],
+    "engines": []
+}
