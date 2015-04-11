@@ -28,9 +28,9 @@ var argscheck = require('cordova/argscheck'),
     exec = require('cordova/exec'),
     cordova = require('cordova');
 
-channel.createSticky('onCordovaInfoReady');
-// Tell cordova channel to wait on the CordovaInfoReady event
-channel.waitForInitialization('onCordovaInfoReady');
+channel.createSticky('onAppInfoReady');
+// Tell cordova channel to wait on the AppInfoReady event
+channel.waitForInitialization('onAppInfoReady');
 
 /**
  * This represents the app, and provides properties for inspecting the app info.
@@ -55,7 +55,7 @@ function AppInfo() {
             me.compileDate = info.compileDate;
             me.isHardwareAccelerated = info.isHardwareAccelerated;
             me.isDebuggable = info.isDebuggable;
-            channel.onCordovaInfoReady.fire();
+            channel.onAppInfoReady.fire();
         },function(e) {
             me.available = false;
             utils.alert("[ERROR] Error initializing Cordova: " + e);
