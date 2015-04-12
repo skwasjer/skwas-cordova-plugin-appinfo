@@ -42,6 +42,27 @@ THE SOFTWARE.
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (NSDate*)getCompileDate
+{
+    // Get compile date.
+    NSString *compileDateStr = [NSString stringWithUTF8String:__DATE__];
+    
+    // Parse string into date obj.
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    NSDateFormatter *dateFormatterParser = [[NSDateFormatter alloc] init];
+    [dateFormatterParser setLocale:enUSPOSIXLocale];
+    [dateFormatterParser setDateFormat:@"MMM d yyyy"];
+    return [dateFormatterParser dateFromString:compileDateStr];
+}
+
+- (NSTimeInterval)getCompileTime
+{
+    int hours, minutes, seconds;
+    if (sscanf(__TIME__, "%d:%d:%d", &hours, &minutes, &seconds) == 3)
+        return (hours * 60 + minutes) * 60 + seconds;
+    return 0;
+}
+
 - (NSDictionary*)appProperties
 {
     NSMutableDictionary* appProps = [NSMutableDictionary dictionaryWithCapacity:4];
@@ -51,25 +72,16 @@ THE SOFTWARE.
     [appProps setObject:[info objectForKey:@"CFBundleName"] forKey:@"name"];
     [appProps setObject:[info objectForKey:@"CFBundleShortVersionString"] forKey:@"version"];
 
-
-	
 	// Get compile date.
-	NSString *compileDate = [NSString stringWithUTF8String:__DATE__];
-    NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
-    [df setDateFormat:@"MMM d yyyy"];
-    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    [df setLocale:usLocale];
-    [usLocale release];
-    NSDate *aDate = [df dateFromString:compileDate];
+    NSDate* compileDate = [[self getCompileDate] dateByAddingTimeInterval:[self getCompileTime]];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     
-    
-    NSDateFormatter *df2 = [[[NSDateFormatter alloc] init] autorelease];
-    [df2 setDateFormat:@"dd-MM-yyyy"];
-    
-    NSString *formattedDateString =
-        [NSString stringWithFormat:@"%@ %s" , [df2 stringFromDate:aDate], __TIME__];
-    
-    [appProps setObject:formattedDateString forKey:@"compileDate"];
+    [appProps setObject:[dateFormatter stringFromDate:compileDate] forKey:@"compileDate"];
 
 	// Always HW accelerated.
     [appProps setObject:[NSNumber numberWithBool:TRUE] forKey:@"isHardwareAccelerated"];
