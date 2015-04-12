@@ -9,7 +9,7 @@ Go to your application root:
 
 ## Supported devices ##
 
-Currently only Android and a browser proxy are implemented. iOS is being worked on and will arrive soon.
+Currently Android, iOS and a browser proxy are implemented.
 
 ## Usage ##
 
@@ -28,7 +28,7 @@ Available properties at the moment are:
 
 ### Device supports hardware acceleration ###
 `appInfo.isHardwareAccelerated`
-(Only supported from Honeycomb upwards)
+Only supported from Honeycomb upwards. iOS will always return true.
 
 ### Device supports remote debugging ###
 `appInfo.isDebuggable`
