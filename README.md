@@ -5,7 +5,8 @@ Cordova Plugin to retrieve App name, version and compile date. Additionally retu
 
 Go to your application root:
 
-`cordova plugin add https://github.com/skwasjer/cordova-appinfo-plugin`
+`cordova plugin add com.skwas.cordova.appinfo`
+`cordova plugin add https://github.com/skwasjer/cordova-appinfo-plugin.git`
 
 ## Supported devices ##
 
