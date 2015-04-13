@@ -36,10 +36,12 @@ THE SOFTWARE.
 
 - (void)getAppInfo:(CDVInvokedUrlCommand*)command
 {
-    NSDictionary* appProperties = [self appProperties];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:appProperties];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary* appProperties = [self appProperties];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:appProperties];
 
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    });
 }
 
 - (NSDate*)getCompileDate
