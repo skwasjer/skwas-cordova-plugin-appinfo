@@ -27,7 +27,7 @@ THE SOFTWARE.
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.skwas.cordova.appinfo"
-    version="0.3.4">
+    version="0.3.5">
     <name>AppInfo</name>
     <description>Cordova AppInfo Plugin</description>
     <license>MIT</license>

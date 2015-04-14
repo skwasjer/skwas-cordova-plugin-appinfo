@@ -1,5 +1,5 @@
 {
-    "version": "0.3.4",
+    "version": "0.3.5",
     "name": "com.skwas.cordova.appinfo",
     "cordova_name": "AppInfo",
     "description": "Cordova AppInfo Plugin",
