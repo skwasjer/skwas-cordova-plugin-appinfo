@@ -1,10 +1,10 @@
 {
-    "version": "0.3.5",
-    "name": "com.skwas.cordova.appinfo",
+    "version": "0.4.0",
+    "name": "skwas-cordova-plugin-appinfo",
     "cordova_name": "AppInfo",
     "description": "Cordova AppInfo Plugin",
     "license": "MIT",
-    "repo": "https://github.com/skwasjer/cordova-appinfo-plugin.git",
+    "repo": "https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git",
     "keywords": [
         "cordova",
         "appinfo"

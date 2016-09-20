@@ -26,13 +26,13 @@ THE SOFTWARE.
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.skwas.cordova.appinfo"
-    version="0.3.5">
+    id="skwas-cordova-plugin-appinfo"
+    version="0.4.0">
     <name>AppInfo</name>
     <description>Cordova AppInfo Plugin</description>
     <license>MIT</license>
     <keywords>cordova,appinfo</keywords>
-    <repo>https://github.com/skwasjer/cordova-appinfo-plugin.git</repo>
+    <repo>https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git</repo>
 
     <js-module src="www/appinfo.js" name="AppInfo">
         <clobbers target="appInfo" />

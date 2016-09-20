@@ -1,13 +1,13 @@
-# cordova-appinfo-plugin
+# skwas-cordova-plugin-appinfo
 Cordova Plugin to retrieve App name, version and compile date. Additionally returns some device capabilities (which I perhaps should move to the Device plugin but meh for now!).
 
 ## Installation ##
 
-`cordova plugin add com.skwas.cordova.appinfo`
+`cordova plugin add skwas-cordova-plugin-appinfo`
 
 or for latest
 
-`cordova plugin add https://github.com/skwasjer/cordova-appinfo-plugin.git`
+`cordova plugin add https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git`
 
 ## Supported devices ##
 
