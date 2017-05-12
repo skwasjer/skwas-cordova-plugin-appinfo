@@ -31,6 +31,8 @@ module.exports = {
 			success({
 				name: "unknown",
 				version: "0.0",
+        build: "",
+        identifer: "",
 				compileDate: new Date(),
 				isHardwareAccelerated: true,
 				isDebuggable: true

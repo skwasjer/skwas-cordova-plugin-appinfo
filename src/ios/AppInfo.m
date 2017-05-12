@@ -48,7 +48,7 @@ THE SOFTWARE.
 {
     // Get compile date.
     NSString *compileDateStr = [NSString stringWithUTF8String:__DATE__];
-    
+
     // Parse string into date obj.
     NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     NSDateFormatter *dateFormatterParser = [[NSDateFormatter alloc] init];
@@ -82,7 +82,7 @@ THE SOFTWARE.
     [dateFormatter setTimeZone:timeZone];
     [dateFormatter setLocale:enUSPOSIXLocale];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-    
+
     [appProps setObject:[dateFormatter stringFromDate:compileDate] forKey:@"compileDate"];
 
 	// Always HW accelerated.
@@ -94,8 +94,11 @@ THE SOFTWARE.
 #else
     [appProps setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDebuggable"];
 #endif
-	
-	
+
+
+	 [appProps setObject:[info objectForKey:@"CFBundleVersion"] forKey:@"build"];
+   [appProps setObject:[info objectForKey:@"CFBundleIdentifier"] forKey:@"identifier"];
+
     NSDictionary* appReturn = [NSDictionary dictionaryWithDictionary:appProps];
     return appReturn;
 }
