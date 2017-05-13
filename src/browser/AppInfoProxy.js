@@ -32,7 +32,7 @@ module.exports = {
 				name: "unknown",
 				version: "0.0",
                 build: "0.0",
-                identifer: "unknown",
+                identifier: "unknown",
 				compileDate: new Date(),
 				isHardwareAccelerated: true,
 				isDebuggable: true

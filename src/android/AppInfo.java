@@ -70,7 +70,7 @@ public class AppInfo extends CordovaPlugin {
 						result.put("name", getApplicationName());
 						result.put("version", getVersion());
                         result.put("build", getBuild());
-						result.put("identifer", getIdentifer());
+						result.put("identifier", getIdentifer());
 						result.put("compileDate", getBuildDate());
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
 						result.put("isDebuggable", getIsDebuggable());
