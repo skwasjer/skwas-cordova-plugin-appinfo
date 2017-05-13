@@ -67,7 +67,7 @@ THE SOFTWARE.
 
 - (NSDictionary*)appProperties
 {
-    NSMutableDictionary* appProps = [NSMutableDictionary dictionaryWithCapacity:4];
+    NSMutableDictionary* appProps = [[NSMutableDictionary alloc] init];
 
 	// Get app name and version.
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
@@ -96,8 +96,8 @@ THE SOFTWARE.
 #endif
 
 
-	 [appProps setObject:[info objectForKey:@"CFBundleVersion"] forKey:@"build"];
-   [appProps setObject:[info objectForKey:@"CFBundleIdentifier"] forKey:@"identifier"];
+    [appProps setObject:[info objectForKey:@"CFBundleVersion"] forKey:@"build"];
+    [appProps setObject:[info objectForKey:@"CFBundleIdentifier"] forKey:@"identifier"];
 
     NSDictionary* appReturn = [NSDictionary dictionaryWithDictionary:appProps];
     return appReturn;
