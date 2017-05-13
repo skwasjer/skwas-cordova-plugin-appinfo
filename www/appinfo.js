@@ -41,6 +41,8 @@ function AppInfo() {
     this.available = false;
     this.name = null;
     this.version = null;
+    this.build = null;
+    this.identifer = null;
     this.compileDate = null;
     this.isHardwareAccelerated = null;
     this.isDebuggable = null;
@@ -52,6 +54,8 @@ function AppInfo() {
             me.available = true;
             me.name = info.name;
             me.version = info.version;
+            me.identifier = info.identifier;
+            me.build = info.build;
             me.compileDate = info.compileDate;
             me.isHardwareAccelerated = info.isHardwareAccelerated;
             me.isDebuggable = info.isDebuggable;

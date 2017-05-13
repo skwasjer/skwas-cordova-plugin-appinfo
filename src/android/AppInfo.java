@@ -51,14 +51,14 @@ public class AppInfo extends CordovaPlugin {
 
 	private Activity _activity;
 	private ApplicationInfo _appInfo;
-	
+
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        
-        _activity = cordova.getActivity();        
+
+        _activity = cordova.getActivity();
         _appInfo = _activity.getApplicationInfo();
-    } 
-	
+    }
+
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
 		if (action.equals("getAppInfo")) {
@@ -69,25 +69,27 @@ public class AppInfo extends CordovaPlugin {
 					try {
 						result.put("name", getApplicationName());
 						result.put("version", getVersion());
+                        result.put("build", getBuild());
+						result.put("identifier", getIdentifer());
 						result.put("compileDate", getBuildDate());
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
 						result.put("isDebuggable", getIsDebuggable());
 					//							result.put("xapp_key", XtifyCordovaPlugin.getAppKey(activity.getApplicationContext()));
 					} catch(JSONException e) {}
 					Log.i("AppInfo", getBuildDate());
-					callbackContext.success(result);   
+					callbackContext.success(result);
 				   }
-				});			
+				});
 			return true;
 		}
 		return false;
 	}
-	
+
 	public String getApplicationName() {
 		int stringId = _appInfo.labelRes;
 		return _activity.getString(stringId);
 	}
-	
+
 	public String getVersion() {
 		String versionName = "";
 		try {
@@ -95,10 +97,10 @@ public class AppInfo extends CordovaPlugin {
 				.getPackageInfo(_activity.getPackageName(), 0)
 				.versionName;
 		} catch (NameNotFoundException e) {}
-		
+
 		return versionName;
 	}
-	
+
 	public String getBuildDate() {
 		String buildDate = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss.SSS",
@@ -107,7 +109,7 @@ public class AppInfo extends CordovaPlugin {
 			).format(getBuildDate(_activity)) + "Z";
 		return buildDate.replace(" ", "T");
 	}
-	
+
 	public Boolean getIsHardwareAccelerated() {
 		Boolean isHardwareAccelerated = false;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -119,7 +121,7 @@ public class AppInfo extends CordovaPlugin {
 		return isHardwareAccelerated;
 
 	}
-	
+
 	public boolean getIsDebuggable() {
 		return 0 != ( _appInfo.flags &= ApplicationInfo.FLAG_DEBUGGABLE );
 	}
@@ -147,4 +149,17 @@ public class AppInfo extends CordovaPlugin {
 		return 0l;
 	}
 
+	public String getBuild() {
+  		android.content.pm.PackageManager pm = _activity.getPackageManager();
+  		try {
+  			android.content.pm.PackageInfo packageInfo = pm.getPackageInfo(getIdentifer(), 0);
+  			return Integer.toString(packageInfo.versionCode);
+  		} catch (NameNotFoundException e) {
+  			return null;
+  		}
+  	}
+
+  	public String getIdentifer() {
+  		return _activity.getPackageName();
+  	}
 }
