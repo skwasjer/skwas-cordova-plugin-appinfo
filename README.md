@@ -50,50 +50,57 @@ function onDeviceReady() {
 
 ## Properties ##
 
-### Application name ###
-`appInfo.name`
+### appInfo.name ###
+##### Type: String #####
+Gets the application name.
 
 #### Supported platforms ####
 - Android (manifest/application@android:label)
 - iOS (CFBundleName)
 
-### Application identifier ###
-`appInfo.identifier`
+### appInfo.identifier ###
+##### Type: String #####
+Gets the application identifier.
 
 #### Supported platforms ####
 - Android (manifest/package)
 - iOS (CFBundleIdentifier)
 
-### Application version ###
-`appInfo.version`
+### appInfo.version ###
+##### Type: String #####
+Gets the application version.
 
 #### Supported platforms ####
 - Android (manifest@android:versionName)
 - iOS (CFBundleShortVersionString)
 
-### Application build ###
-`appInfo.build`
+### appInfo.build ###
+##### Type: String #####
+Gets the application build.
 
 #### Supported platforms ####
 - Android (manifest@android:versionCode)
 - iOS (CFBundleVersion)
 
-### Application compile date ###
-`appInfo.compileDate`
+### appInfo.compileDate ###
+##### Type: Date #####
+Gets the datetime when the application was compiled.
 
 #### Supported platforms ####
 - Android
 - iOS
 
-### Device supports hardware acceleration ###
-`appInfo.isHardwareAccelerated`
+### appInfo.isHardwareAccelerated ###
+##### Type: Boolean #####
+Gets whether the application is using hardware acceleration.
 
 #### Supported platforms ####
 - Android, Honeycomb upwards
 - iOS will always return true
 
-### Device supports remote debugging ###
-`appInfo.isDebuggable`
+### appInfo.isDebuggable ###
+##### Type: Boolean #####
+Gets whether the application can be remotely debugged.
 
 #### Supported platforms ####
 - Android
