@@ -83,7 +83,7 @@ Gets the application build.
 - iOS (CFBundleVersion)
 
 ## appInfo.compileDate ##
-##### Type: Date #####
+##### Type: String #####
 Gets the datetime when the application was compiled.
 
 #### Supported platforms ####
