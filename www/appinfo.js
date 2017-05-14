@@ -42,7 +42,7 @@ function AppInfo() {
     this.name = null;
     this.version = null;
     this.build = null;
-    this.identifer = null;
+    this.identifier = null;
     this.compileDate = null;
     this.isHardwareAccelerated = null;
     this.isDebuggable = null;

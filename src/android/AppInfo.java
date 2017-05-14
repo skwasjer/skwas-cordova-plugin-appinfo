@@ -70,7 +70,7 @@ public class AppInfo extends CordovaPlugin {
 						result.put("name", getApplicationName());
 						result.put("version", getVersion());
                         result.put("build", getBuild());
-						result.put("identifier", getIdentifer());
+						result.put("identifier", getIdentifier());
 						result.put("compileDate", getBuildDate());
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
 						result.put("isDebuggable", getIsDebuggable());
@@ -151,14 +151,14 @@ public class AppInfo extends CordovaPlugin {
 	public String getBuild() {
   		android.content.pm.PackageManager pm = _activity.getPackageManager();
   		try {
-  			android.content.pm.PackageInfo packageInfo = pm.getPackageInfo(getIdentifer(), 0);
+  			android.content.pm.PackageInfo packageInfo = pm.getPackageInfo(getIdentifier(), 0);
   			return Integer.toString(packageInfo.versionCode);
   		} catch (NameNotFoundException e) {
   			return null;
   		}
   	}
 
-  	public String getIdentifer() {
+  	public String getIdentifier() {
   		return _activity.getPackageName();
   	}
 }
