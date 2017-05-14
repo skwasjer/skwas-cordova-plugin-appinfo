@@ -9,6 +9,9 @@
 	    "url" : "https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git"
     },
     "keywords": [
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios",
         "cordova",
         "appinfo"
     ],
