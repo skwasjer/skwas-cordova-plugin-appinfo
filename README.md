@@ -3,25 +3,6 @@
 # skwas-cordova-plugin-appinfo
 Cordova Plugin to retrieve application information, like the App name, version, compile date and identifier. Additionally returns some device capabilities (which perhaps should be move to the device plugin).
 
-## Changelog
-
-#### 1.0.0 ####
-- Marking v1 since it is fairly stable and not changing much.
-- Android/iOS: added build and identifier.
-
-#### 0.4.0
-- added Cordova 5.x support
-
-#### 0.3.5
-- run plugin in background as per Cordova manual
-
-#### 0.3.4
-- added iOS support
-
-#### 0.3.2
-- Android support
-- first public release
-
 ## Installation ##
 
 `cordova plugin add skwas-cordova-plugin-appinfo`
@@ -105,3 +86,26 @@ Gets whether the application can be remotely debugged.
 #### Supported platforms ####
 - Android
 - iOS
+
+## Changelog
+
+#### 1.0.1
+- Android: fix compile error when cordova-plugin-device is not installed
+
+#### 1.0.0 ####
+- Marking v1 since it is fairly stable and not changing much.
+- Android/iOS: added build and identifier.
+
+#### 0.4.0
+- added Cordova 5.x support
+
+#### 0.3.5
+- run plugin in background as per Cordova manual
+
+#### 0.3.4
+- added iOS support
+
+#### 0.3.2
+- Android support
+- first public release
+
