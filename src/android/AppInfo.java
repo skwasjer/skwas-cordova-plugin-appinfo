@@ -74,7 +74,6 @@ public class AppInfo extends CordovaPlugin {
 						result.put("compileDate", getBuildDate());
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
 						result.put("isDebuggable", getIsDebuggable());
-					//							result.put("xapp_key", XtifyCordovaPlugin.getAppKey(activity.getApplicationContext()));
 					} catch(JSONException e) {}
 					Log.i("AppInfo", getBuildDate());
 					callbackContext.success(result);
