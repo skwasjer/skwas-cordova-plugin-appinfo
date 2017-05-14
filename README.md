@@ -35,7 +35,7 @@ or for latest
 
 Android 4 and higher  
 iOS 8 and higher (tested with Xcode 7.2.3 and Xcode 8)  
-Browser proxy
+Browser proxy (provided only for compatibility)
 
 ## Usage ##
 
@@ -48,9 +48,9 @@ function onDeviceReady() {
 }
 ```
 
-## Properties ##
+# Properties #
 
-### appInfo.name ###
+## appInfo.name ##
 ##### Type: String #####
 Gets the application name.
 
@@ -58,7 +58,7 @@ Gets the application name.
 - Android (manifest/application@android:label)
 - iOS (CFBundleName)
 
-### appInfo.identifier ###
+## appInfo.identifier ##
 ##### Type: String #####
 Gets the application identifier.
 
@@ -66,7 +66,7 @@ Gets the application identifier.
 - Android (manifest/package)
 - iOS (CFBundleIdentifier)
 
-### appInfo.version ###
+## appInfo.version ##
 ##### Type: String #####
 Gets the application version.
 
@@ -74,7 +74,7 @@ Gets the application version.
 - Android (manifest@android:versionName)
 - iOS (CFBundleShortVersionString)
 
-### appInfo.build ###
+## appInfo.build ##
 ##### Type: String #####
 Gets the application build.
 
@@ -82,7 +82,7 @@ Gets the application build.
 - Android (manifest@android:versionCode)
 - iOS (CFBundleVersion)
 
-### appInfo.compileDate ###
+## appInfo.compileDate ##
 ##### Type: Date #####
 Gets the datetime when the application was compiled.
 
@@ -90,7 +90,7 @@ Gets the datetime when the application was compiled.
 - Android
 - iOS
 
-### appInfo.isHardwareAccelerated ###
+## appInfo.isHardwareAccelerated ##
 ##### Type: Boolean #####
 Gets whether the application is using hardware acceleration.
 
@@ -98,7 +98,7 @@ Gets whether the application is using hardware acceleration.
 - Android, Honeycomb upwards
 - iOS will always return true
 
-### appInfo.isDebuggable ###
+## appInfo.isDebuggable ##
 ##### Type: Boolean #####
 Gets whether the application can be remotely debugged.
 
