@@ -51,12 +51,12 @@ public class AppInfo extends CordovaPlugin {
 	private Activity _activity;
 	private ApplicationInfo _appInfo;
 
-    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		super.initialize(cordova, webView);
 
-        _activity = cordova.getActivity();
-        _appInfo = _activity.getApplicationInfo();
-    }
+		_activity = cordova.getActivity();
+		_appInfo = _activity.getApplicationInfo();
+	}
 
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
@@ -68,7 +68,7 @@ public class AppInfo extends CordovaPlugin {
 					try {
 						result.put("name", getApplicationName());
 						result.put("version", getVersion());
-                        result.put("build", getBuild());
+						result.put("build", getBuild());
 						result.put("identifier", getIdentifier());
 						result.put("compileDate", getBuildDate());
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
@@ -76,8 +76,8 @@ public class AppInfo extends CordovaPlugin {
 					} catch(JSONException e) {}
 					Log.i("AppInfo", getBuildDate());
 					callbackContext.success(result);
-				   }
-				});
+				}
+			});
 			return true;
 		}
 		return false;
@@ -89,20 +89,16 @@ public class AppInfo extends CordovaPlugin {
 	}
 
 	public String getVersion() {
-		String versionName = "";
-		try {
-			versionName = _activity.getPackageManager()
-				.getPackageInfo(_activity.getPackageName(), 0)
-				.versionName;
+		try {            
+			return getPackageInfo().versionName;
 		} catch (NameNotFoundException e) {}
 
-		return versionName;
+		return "";
 	}
 
 	public String getBuildDate() {
 		String buildDate = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss.SSS",
-			//"dd-MM-yyyy HH:mm:ss",
 			Locale.getDefault()
 			).format(getBuildDate(_activity)) + "Z";
 		return buildDate.replace(" ", "T");
@@ -117,7 +113,6 @@ public class AppInfo extends CordovaPlugin {
 			} catch (Exception e) {}
 		}
 		return isHardwareAccelerated;
-
 	}
 
 	public boolean getIsDebuggable() {
@@ -125,11 +120,11 @@ public class AppInfo extends CordovaPlugin {
 	}
 
 	public static long getBuildDate(Context context) {
-
 		ZipFile zf = null;
 		try {
-			ApplicationInfo ai = context.getPackageManager()
-					.getApplicationInfo(context.getPackageName(), 0);
+			ApplicationInfo ai = context
+				.getPackageManager()
+				.getApplicationInfo(context.getPackageName(), 0);
 			zf = new ZipFile(ai.sourceDir);
 			ZipEntry ze = zf.getEntry("classes.dex");
 			long time = ze.getTime();
@@ -148,16 +143,20 @@ public class AppInfo extends CordovaPlugin {
 	}
 
 	public String getBuild() {
-  		android.content.pm.PackageManager pm = _activity.getPackageManager();
-  		try {
-  			android.content.pm.PackageInfo packageInfo = pm.getPackageInfo(getIdentifier(), 0);
-  			return Integer.toString(packageInfo.versionCode);
-  		} catch (NameNotFoundException e) {
-  			return null;
-  		}
-  	}
+		try {
+			return Integer.toString(getPackageInfo().versionCode);
+		} catch (NameNotFoundException e) {
+			return null;
+		}
+	}
 
-  	public String getIdentifier() {
-  		return _activity.getPackageName();
-  	}
+	public String getIdentifier() {
+		return _activity.getPackageName();
+	}
+
+	private android.content.pm.PackageInfo getPackageInfo() throws NameNotFoundException {
+		return _activity
+			.getPackageManager()
+			.getPackageInfo(getIdentifier(), 0);
+	}
 }
