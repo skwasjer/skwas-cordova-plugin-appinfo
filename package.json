@@ -4,9 +4,17 @@
     "cordova_name": "AppInfo",
     "description": "Cordova AppInfo Plugin",
     "license": "MIT",
+    "cordova": {
+        "id": "skwas-cordova-plugin-appinfo",
+        "platforms": [
+            "android",
+            "ios",
+            "browser"
+        ]
+    }
     "repository": {
-	    "type" : "git",
-	    "url" : "https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git"
+     "type" : "git",
+     "url" : "https://github.com/skwasjer/skwas-cordova-plugin-appinfo.git"
     },
     "keywords": [
         "ecosystem:cordova",
@@ -17,12 +25,12 @@
     ],
     "platforms": [
         "android",
-		"ios",
+        "ios",
         "browser"
     ],
     "engines": [],
     "author": "skwasjer",
     "contributors": [
         "ypzhuang"
-	]
+    ]
 }
