@@ -1,0 +1,20 @@
+long currentTimeMillis = System.currentTimeMillis()
+
+android {
+  buildTypes {
+    release {
+      // These values are defined only for the release build, which
+      // is typically used for full builds and continuous builds.
+      buildConfigField("long", "BUILD_TIME", "${currentTimeMillis}L")
+      resValue("string", "build_time", "${currentTimeMillis}")
+    }
+    debug {
+      // Use static values for incremental builds to ensure that
+      // resource files and BuildConfig aren't rebuilt with each run.
+      // If they were dynamic, they would prevent certain benefits of
+      // Instant Run as well as Gradle UP-TO-DATE checks.
+      buildConfigField("long", "BUILD_TIME", "0")
+      resValue("string", "build_time", "0")
+    }
+  }
+}
