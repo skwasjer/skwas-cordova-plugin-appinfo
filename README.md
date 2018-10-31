@@ -73,6 +73,9 @@ Gets the datetime when the application was compiled.
 - Android
 - iOS
 
+#### Android quirks
+When compiling for debug, the compile date returns January 1, 1970. This is on purpose to avoid changes to BuildConfig triggering full rebuilds (and allowing faster Instant Run).
+
 ## appInfo.isHardwareAccelerated ##
 ##### Type: Boolean #####
 Gets whether the application is using hardware acceleration.
