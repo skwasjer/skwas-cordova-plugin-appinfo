@@ -1,6 +1,6 @@
 {
   "name": "skwas-cordova-plugin-appinfo",
-  "version": "2.0.0-rc1",
+  "version": "2.0.0",
   "description": "Cordova AppInfo Plugin",
   "cordova": {
     "id": "skwas-cordova-plugin-appinfo",

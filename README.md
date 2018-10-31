@@ -14,9 +14,11 @@ or for latest
 
 ## Supported platforms ##
 
-Android 4 and higher  
+Android 4.1 and higher  
 iOS 8 and higher (tested with Xcode 7.2.3 and Xcode 8)  
 Browser proxy (provided only for compatibility)
+
+> Tested with Cordova 7 and higher.
 
 ## Usage ##
 
@@ -88,6 +90,9 @@ Gets whether the application can be remotely debugged.
 - iOS
 
 ## Changelog
+
+#### 2.0.0
+- Android: since Gradle 2.2, files in APK's no longer have timestamps, thus breaking the `compileDate` property. Fixed by adding a property to `BuildConfig` at build time.
 
 #### 1.0.1
 - Android: fix compile error when cordova-plugin-device is not installed
