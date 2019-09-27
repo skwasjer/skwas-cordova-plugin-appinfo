@@ -64,12 +64,18 @@ public class AppInfo extends CordovaPlugin {
 
 	public Boolean getIsHardwareAccelerated() {
 		Boolean isHardwareAccelerated = false;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		try {
+			isHardwareAccelerated = webView.getView().isHardwareAccelerated();
+		}
+		catch (Exception e) {}
+
+		if (!isHardwareAccelerated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			try {
-				Method _isHardwareAccelerated = CordovaWebView.class.getMethod("isHardwareAccelerated", (Class<?>[])null);
-				isHardwareAccelerated = (Boolean)_isHardwareAccelerated.invoke(webView, (Object[])null);
+				Method _isHardwareAccelerated = CordovaWebView.class.getMethod("isHardwareAccelerated", (Class<?>[]) null);
+				isHardwareAccelerated = (Boolean) _isHardwareAccelerated.invoke(webView, (Object[]) null);
 			} catch (Exception e) {}
 		}
+
 		return isHardwareAccelerated;
 	}
 }
