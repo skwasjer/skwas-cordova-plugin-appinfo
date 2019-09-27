@@ -31,9 +31,7 @@ exports.defineAutoTests = function () {
 
         it('should contain a compile date specification that is a date string', function () {
             expect(window.appInfo.compileDate).toBeDefined();
-            expect(typeof window.appInfo.compileDate).toBe("string");
-            expect(window.appInfo.compileDate.length > 0).toBe(true);
-            var date = new Date(window.appInfo.compileDate);
+            var date = window.appInfo.compileDate;
             expect(date instanceof Date && !isNaN(date.valueOf())).toBe(true);
         });
 

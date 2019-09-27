@@ -56,7 +56,7 @@ function AppInfo() {
             me.version = info.version;
             me.identifier = info.identifier;
             me.build = info.build;
-            me.compileDate = info.compileDate;
+            me.compileDate = new Date(info.compileDate);
             me.isHardwareAccelerated = info.isHardwareAccelerated;
             me.isDebuggable = info.isDebuggable;
             channel.onAppInfoReady.fire();

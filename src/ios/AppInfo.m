@@ -76,14 +76,8 @@ THE SOFTWARE.
 
 	// Get compile date.
     NSDate* compileDate = [[self getCompileDate] dateByAddingTimeInterval:[self getCompileTime]];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setLocale:enUSPOSIXLocale];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-
-    [appProps setObject:[dateFormatter stringFromDate:compileDate] forKey:@"compileDate"];
+    long long ticks = ((long long)[compileDate timeIntervalSince1970]) * DDBIntervalFactor;
+    [appProps setObject:[NSNumber numberWithLongLong:ticks] forKey:@"compileDate"];
 
 	// Always HW accelerated.
     [appProps setObject:[NSNumber numberWithBool:TRUE] forKey:@"isHardwareAccelerated"];

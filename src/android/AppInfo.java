@@ -12,8 +12,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 import [app_id].BuildConfig;
 
@@ -41,8 +39,7 @@ public class AppInfo extends CordovaPlugin {
 						result.put("version", BuildConfig.VERSION_NAME);
 						result.put("build", BuildConfig.VERSION_CODE);
 						result.put("identifier", BuildConfig.APPLICATION_ID);
-						result.put("compileDate", getBuildDate());
-						result.put("compileDateTicks", BuildConfig.BUILD_TIME);
+						result.put("compileDate", BuildConfig.BUILD_TIME);
 						result.put("isHardwareAccelerated", getIsHardwareAccelerated());
 						result.put("isDebuggable", BuildConfig.DEBUG);
 					} catch(JSONException e) {}
@@ -52,14 +49,6 @@ public class AppInfo extends CordovaPlugin {
 			return true;
 		}
 		return false;
-	}
-
-	public String getBuildDate() {
-		String buildDate = new SimpleDateFormat(
-			"yyyy-MM-dd HH:mm:ss.SSS",
-			Locale.getDefault()
-			).format(BuildConfig.BUILD_TIME) + "Z";
-		return buildDate.replace(" ", "T");
 	}
 
 	public Boolean getIsHardwareAccelerated() {

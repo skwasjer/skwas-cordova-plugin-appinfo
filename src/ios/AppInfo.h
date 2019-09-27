@@ -26,6 +26,10 @@ THE SOFTWARE.
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
 
+enum DTPDateBounds {
+    DDBIntervalFactor = 1000
+};
+
 @interface AppInfo : CDVPlugin
 {}
 
