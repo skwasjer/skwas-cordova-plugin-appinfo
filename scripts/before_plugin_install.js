@@ -7,7 +7,7 @@
 module.exports = function (context) {
   var path = require("path");
   var fs = require("fs");
-  var DOMParser = require("xmldom").DOMParser;
+  var DOMParser = require("@xmldom/xmldom").DOMParser;
   var domParser = new DOMParser();
 
   // Read app id from config.xml.

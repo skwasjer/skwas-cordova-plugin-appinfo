@@ -32,6 +32,6 @@
     "ypzhuang"
   ],
   "dependencies": {
-    "xmldom": "^0.6.0"
+    "@xmldom/xmldom": "^0.8.5"
   }
 }
